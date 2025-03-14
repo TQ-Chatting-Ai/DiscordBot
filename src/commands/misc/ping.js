@@ -13,8 +13,8 @@ module.exports = {
 
     interaction.editReply(`
       :ping_pong: Pong!
-      Client: ${ping}ms 
-      Websocket: ${client.ws.ping}ms
+      | Client: ${ping}ms 
+      | Websocket: ${client.ws.ping}ms
       `);      
   },
 };
