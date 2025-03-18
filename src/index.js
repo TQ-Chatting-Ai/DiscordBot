@@ -1,6 +1,8 @@
 require('dotenv').config();
 const { Client, IntentsBitField, Embed, EmbedBuilder, ClientUser, ActivityType, Activity } = require('discord.js');
+const mongoose = require('mongoose');
 const eventHandler = require('./handlers/eventHandler');
+
 
 const client = new Client({
   intents: [
@@ -30,12 +32,28 @@ let status = [
     name: 'Custom Status 3',
     type: ActivityType.Listening,
   },
-]
+];
 
+
+(async () => {
+  try {
+    mongoose.set('strictQuery', false);
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    
+    console.log('Connected to DB.');
+
+    eventHandler(client);
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+})();
+
+
+// eventHandler(client);
 // Set online Bot --> nodemon >>>>>>>>>>>>>>>>>>>>>>>>>
-
-eventHandler(client);
-
 client.on('ready', (c) => {
   // console.log(`✅ ${c.user.tag} is online.`);
 
@@ -44,8 +62,6 @@ client.on('ready', (c) => {
     client.user.setActivity(status[random]);
   }, 10000);
 });
-
-
 
 
 
