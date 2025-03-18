@@ -38,10 +38,7 @@ let status = [
 (async () => {
   try {
     mongoose.set('strictQuery', false);
-    await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URL);
     
     console.log('Connected to DB.');
 
