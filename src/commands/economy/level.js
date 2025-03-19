@@ -3,10 +3,8 @@ const canvacord = require('canvacord');
 const calculateLevelXp = require('../../utils/calculateLevelXp');
 const Level = require('../../models/Level');
 const { Font } = require('canvacord');
-const { BuiltInGraphemeProvider } = require('canvacord');
 
 Font.loadDefault();
-
 
 module.exports = {
   /**
@@ -79,25 +77,21 @@ module.exports = {
         },
         overlay: {
           style: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Transparansi hitam
-          },
-          border: {
-            style: {
-              width: "5px",
-              color: "#FFD700", // Warna emas untuk border avatar
-            },
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backgroundSize: "cover",
           },
         },
         avatar: {
           border: {
             style: {
-              width: "5px",
+              width: "10px",
               color: "#FFD700", // Warna emas untuk border avatar
+              radius: "50%",
             },
           },
         },
       })
-      .setBackground("https://i.pinimg.com/736x/1c/7b/eb/1c7beb8e937e49d2f0f039d68e80eec4.jpg"); // Ganti dengan gambar latar belakang kustom
+      .setBackground("https://i.pinimg.com/736x/77/13/56/771356ce493ac07702ece805ecab6f49.jpg"); // Ganti dengan gambar latar belakang kustom
     
     const image = await rank.build({ format: 'png' });
     const attachment = new AttachmentBuilder(image);
