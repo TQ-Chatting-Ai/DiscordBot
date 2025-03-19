@@ -50,7 +50,7 @@ let status = [
 
 
 // eventHandler(client);
-// Set online Bot --> nodemon >>>>>>>>>>>>>>>>>>>>>>>>>
+// Set online Bot --> nodemon >>>>>>>>>>>>>>>>>>>>>>>>>>>
 client.on('ready', (c) => {
   // console.log(`✅ ${c.user.tag} is online.`);
 
