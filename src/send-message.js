@@ -16,19 +16,21 @@ const client = new Client({
   ],
 });
 
+// You Must restart 'node src/send-message.js' to activated again! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 const roles = [
-    {
-        id: '1349019528159301793',
-        label: 'Red'
-    },
+    // {
+    //     id: '1349019528159301793',
+    //     label: 'Red'
+    // },
     {
         id: '1349018770949148783',
         label: 'Green'
     },
-    {
-        id: '1349019673382879334',
-        label: 'Blue'
-    },
+    // {
+    //     id: '1349019673382879334',
+    //     label: 'Blue'
+    // },
 ];
 
 client.on('ready', async (c) => {
